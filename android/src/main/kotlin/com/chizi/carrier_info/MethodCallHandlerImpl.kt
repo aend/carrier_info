@@ -110,9 +110,10 @@ internal class MethodCallHandlerImpl(context: Context, activity: Activity?) : Me
             val subsManager =
                 context!!.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE) as SubscriptionManager
 
-            if (subsManager.activeSubscriptionInfoList != null) {
+            val subsList = subsManager.activeSubscriptionInfoList;
+            if (subsList != null) {
 
-                for (subsInfo in subsManager.activeSubscriptionInfoList) {
+                for (subsInfo in subsList) {
                     if (subsInfo != null) {
                         try {
                             val data = hashMapOf(
